@@ -6,6 +6,9 @@ dummyfier <- function(thedataframe,theColumnName) {
         # dummyfier(df,  'FLAG') -- 2 vars
         # dummyfier(df,  'CHIEFCOMPLAINT') -- multi vars
         
+        # requires the caret library
+        require(caret)
+        
         if (length(levels(thedataframe[,theColumnName])) == 2) {
                 print(paste("Levels found:",length(levels(thedataframe[,theColumnName]))))
                 thedataframe[,theColumnName] <- ifelse(thedataframe[,theColumnName] == levels(thedataframe[,theColumnName])[1], 1, 0)
